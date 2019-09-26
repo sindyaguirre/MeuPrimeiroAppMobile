@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="{Binding Veiculo.Nome}"
+             x:Class="App6.Views.DetalheView">
+    <ContentPage.Content>
+        <StackLayout Padding="25">
+            <!--criando tabela de configurações. Intent significa qual a inteção com esta tableView-->
+            <TableView Intent="Settings">
+                <TableRoot>
+                    <TableSection Title="Acessórios">
+                        <!--TwoWay significa modo de notificaõao de duas vias, tanto a pagina que vem do c# quanto a pagina que vem do codbhinding-->
+                        <SwitchCell Text="{Binding textoFreioABS}" On="{Binding TemFreioABS,Mode=TwoWay}"></SwitchCell>
+                        <SwitchCell Text="{Binding textoArCondicionado}" On="{Binding TemArCondicionado,Mode=TwoWay}"></SwitchCell>
+                        <SwitchCell Text="{Binding textoMp3Player}" On="{Binding TemMp3Player,Mode=TwoWay}"></SwitchCell>
+                        <TextCell Text="{Binding ValorTotal,Mode=TwoWay}"></TextCell>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+
+            <Label Text="Esta é a página de detalhe "
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Button x:Name="buttonProximo" Text="Próximo" Clicked="ButtonProximo_Clicked"
+                    VerticalOptions="End"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
